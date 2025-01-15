@@ -1,0 +1,96 @@
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 头部样式 */
+.hd {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hd img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.page_title {
+    color: #007bff;
+    font-size: 24px;
+}
+
+/* 表单样式 */
+.weui_cells {
+    margin-bottom: 15px;
+}
+
+.weui_cell {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.weui_cell_hd {
+    font-size: 16px;
+    color: #555;
+}
+
+/* 按钮样式 */
+.bd.spacing {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bd.spacing a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.bd.spacing a:hover {
+    background-color: #0056b3;
+}
+
+/* 联系信息样式 */
+.weui_cells__tips {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.weui_cells__tips a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.weui_cells__tips a:hover {
+    text-decoration: underline;
+}
+
+/* Vue.js 动态内容样式 */
+[v-cloak] {
+    display: none;
+}

@@ -1,0 +1,103 @@
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 页面布局 */
+.main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* 头部样式 */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.activity-info {
+    color: #555;
+    font-size: 14px;
+    text-align: left;
+}
+
+.activity-meta {
+    margin-right: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.activity-meta:hover {
+    text-decoration: underline;
+}
+
+/* 页面内容 */
+#page-content {
+    margin-top: 20px;
+}
+
+#img-content .text {
+    text-align: center;
+}
+
+#img-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* 链接样式 */
+#img-content a {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#img-content a:hover {
+    background-color: #0056b3;
+}
+
+/* 详细信息 */
+section {
+    margin: 10px 0;
+}
+
+section p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* 提示信息 */
+.alert {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+}

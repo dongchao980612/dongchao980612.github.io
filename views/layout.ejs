@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/layout.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <h1 id="activity-name">
+                <%= device["产品名称"]%>
+            </h1>
+            <p class="activity-info"> <span id="post-date" class="activity-meta no-extra"></span> <span
+                    class="activity-meta">杭州大华</span> </p>
+        </div>
+        <div id="img-content">
+            <div class="text">
+                <p><img src="" alt="" /><img src=" <%= deviceImageUrl %>" /><br /></p>
+                <section>
+                    <section>
+                        <section>
+                            <section><a href="<%= instructionUrl %>">点击查看产品使用说明书</a>
+                            </section>
+                        </section>
+                    </section>
+                    <section></section>
+                    <p><br /></p>
+                    <section>
+                        <section>
+                            <section><a href="<%= videoUrl %>">点击查看产品测定视频</a>
+                            </section>
+                        </section>
+                    </section>
+
+                    <section>
+                        <section>
+                            <p>产品详细介绍</p>
+                        </section>
+                        <section>
+                            <p>
+                                <%= detail %>
+                            </p>
+
+                        </section>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
