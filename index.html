@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息查询</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <form id="form1" name="form1" method="post" action="#?FromUserName=">
+            <div class="hd">
+                <img src="http://wxinfo.hzdh.com/dhwx/images/dhpnglogo.png" alt="Logo">
+                <h3 class="page_title">仪器信息</h3>
+            </div>
+
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_hd">产品名称:{{ deviceInfo['产品名称'] }}</div>
+                </div>
+
+
+                <div class="weui_cell">
+                    <div class="weui_cell_hd">产品型号:{{ deviceInfo['产品型号'] }}</div>
+                </div>
+
+
+                <div class="weui_cell">
+                    <div class="weui_cell_hd">产品编码:{{ deviceInfo['产品编码'] }}</div>
+                </div>
+
+                <div class="weui_cell">
+                    <div class="weui_cell_hd">出厂日期:{{ deviceInfo['出厂日期'] }}</div>
+                </div>
+
+            </div>
+        </form>
+
+        <br>
+        <div class="bd spacing">
+            <a href="javascript:void(0);" @click="goToInstructions">操作说明</a>
+        </div>
+
+
+        <br>
+        <div class="bd spacing">
+            <a href="javascript:void(0);" @click="goToWechatQR">关注公众号</a>
+        </div>
+
+        <br>
+        <div class="bd spacing">
+            <a href="javascript:void(0);" @click="goToReport">故障报修</a>
+        </div>
+
+        <div class="hd">
+            <div class="weui_cells__tips">电话：<a href="tel:0571-58837552">0571-58837552</a></div>
+            <div class="weui_cells__tips">地址：杭州市富阳区东洲工业功能区十一号路3号</div>
+            <div class="weui_cells__tips">电邮：hzdhmail@163.com</div>
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                deviceInfo: {},
+                mcid: new URLSearchParams(window.location.search).get('MCID') || 'SN015941', // 默认MCID
+            },
+            created() {
+                this.fetchDeviceInfo();
+            },
+            methods: {
+                fetchDeviceInfo() {
+                    axios.get(`http://localhost:3000/Macinfo.asp?MCID=${this.mcid}`)
+                        .then(response => {
+                            this.deviceInfo = response.data;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching device info:', error);
+                            this.deviceInfo = { error: 'MCID not found' };
+                        });
+                },
+                goToWechatQR() {
+                    window.location.href = 'http://wxinfo.hzdh.com/dhwx/images/dhpnglogo.png';
+                },
+                goToInstructions() {
+                    window.location.href = `http://localhost:3000/dhShow.asp?MCID=${this.mcid}`;
+                },
+                goToReport() {
+                    if (this.isWechatBrowser()) {
+                        // 如果在微信浏览器中打开，调用故障报修逻辑
+                        this.reportIssue();
+                    } else {
+                        // 如果不在微信浏览器中打开，显示提示信息
+                        alert('请在微信中打开此链接进行故障报修。');
+                    }
+                },
+                isWechatBrowser() {
+                    const ua = navigator.userAgent.toLowerCase();
+                    return ua.indexOf('micromessenger') !== -1;
+                },
+                reportIssue() {
+                    // 暂时未实现故障报修逻辑
+                    console.log('故障报修功能暂未实现。');
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>
